@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mlx_pixel_put.c                                 :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibernar <@student.42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/22 16:30:18 by pibernar          #+#    #+#             */
-/*   Updated: 2024/05/22 16:34:59 by pibernar         ###   ########.fr       */
+/*   Created: 2024/02/19 12:17:32 by pibernar          #+#    #+#             */
+/*   Updated: 2024/02/22 12:29:52 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
-
-void	ft_mlx_pixel_put(t_data *data, int x, int y, int color)
+int	ft_isprint(int c)
 {
-	char	*dst;
-	
-	dst = data->addr + (y * data->line_length + x * (data->bpp / 8));
-	*(unsigned int*)dst = color;
+	if (c >= ' ' && c <= '~')
+	{
+		return (1);
+	}
+	return (0);
 }

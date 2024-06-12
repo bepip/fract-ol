@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibernar <@student.42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/22 16:21:00 by pibernar          #+#    #+#             */
-/*   Updated: 2024/05/22 16:28:53 by pibernar         ###   ########.fr       */
+/*   Created: 2024/02/22 11:43:56 by pibernar          #+#    #+#             */
+/*   Updated: 2024/02/23 12:22:05 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "libft.h"
 
-
-int	main(void)
+void	ft_putstr_fd(char *s, int fd)
 {
-	t_vars vars;
-	t_data img;
-	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx, WIDTH, HEIGHT, "fract-ol");
-	mlx_loop(vars.mlx);
-	return (0);
+	size_t	i;
+
+	if (!s || fd < 0)
+		return ;
+	i = 0;
+	while (s[i])
+	{
+		ft_putchar_fd(s[i], fd);
+		i++;
+	}
 }

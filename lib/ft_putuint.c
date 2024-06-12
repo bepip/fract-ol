@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_color.c                                         :+:      :+:    :+:   */
+/*   ft_putuint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibernar <@student.42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/22 17:17:50 by pibernar          #+#    #+#             */
-/*   Updated: 2024/05/22 17:19:46 by pibernar         ###   ########.fr       */
+/*   Created: 2024/02/29 11:11:29 by pibernar          #+#    #+#             */
+/*   Updated: 2024/03/05 12:51:09 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "ft_printf.h"
 
-int	ft_color(int iter)
+void	ft_putuint(unsigned int n)
 {
-	if (iter == MAX_ITERATION)
-		return (0x00000000);
-	return (0x00CC6600);
+	if (n / 10)
+		ft_putuint(n / 10);
+	ft_putchar('0' + n % 10);
 }
