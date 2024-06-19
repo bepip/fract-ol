@@ -7,13 +7,15 @@ MLX_FLAGS=	-Lminilibx -lmlx_Linux -lX11 -lXext
 CFILES	=	fractal.c \
 		main.c	\
 		ft_color.c \
-		events.c \
+		key_events.c \
+		mouse_events.c \
 		event_handler.c \
 		initialize.c \
 		render.c \
 		input_check.c \
 		free_fractal.c \
-		utils.c
+		utils.c	
+
 
 SRC_PATH = src/
 

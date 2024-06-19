@@ -1,28 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   events.c                                           :+:      :+:    :+:   */
+/*   key_events.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibernar <@student.42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 12:34:15 by pibernar          #+#    #+#             */
-/*   Updated: 2024/06/12 14:30:01 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/06/19 13:56:04 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-static int	zoom(t_fractal *f, double zoom)
-{
-	double len_x;
-	double len_y;
-
-	len_x = (f->a - f->b);
-	len_y = (f->d - f->c);
-	f->b = f->b + 0.5 * (1 - zoom) * len_x;
-	f->a = f->b + len_x * zoom;
-	f->c = f->c + 0.5 * (1 - zoom) * len_y;
-	f->d = f->c + len_y * zoom;
-}
 
 int	fractal_shift(int key, t_fractal *f)
 {
@@ -49,21 +37,6 @@ int	fractal_shift(int key, t_fractal *f)
 	return (0);
 }
 
-int	fractal_zoom(int key, int x, int y, t_fractal *f)
-{
-	if (key == 4)
-	{
-		zoom(f, 0.9);
-		f->zoom *=0.9;
-	}
-	if (key == 5)
-	{
-		zoom(f, 1.1);
-		f->zoom *= 1.1; 
-	}
-	return (0);
-}
-
 int	fractal_iteration(int key, t_fractal *f)
 {
 	if (key == 65451)
@@ -73,12 +46,34 @@ int	fractal_iteration(int key, t_fractal *f)
 	return (0);
 }
 
-//TODO add close for X
 int	close_window(int key, t_fractal *f)
 {
 	if (key == 65307)
 	{
 		free_fractal(f);
 	}
+	return (0);
+}
+
+int	change_color(int key, t_fractal *f)
+{
+	if (key == 49 || key == 65436)
+		f->palette = 1;
+	if (key == 50 || key == 65433)
+		f->palette = 2;
+	if (key == 51 || key == 65435)
+		f->palette = 3;
+	if (key == 52 || key == 65430)
+		f->palette = 4;
+	if (key == 53 || key == 65437)
+		f->palette = 5;
+	if (key == 54 || key == 65432)
+		f->palette = 6;
+	if (key == 55 || key == 65429)
+		f->palette = 7;
+	if (key == 56 || key == 65431)
+		f->palette = 8;
+	if (key == 57 || key == 65434)
+		f->palette = 9;
 	return (0);
 }

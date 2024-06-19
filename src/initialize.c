@@ -6,7 +6,7 @@
 /*   By: pibernar <@student.42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 12:17:06 by pibernar          #+#    #+#             */
-/*   Updated: 2024/06/12 13:15:06 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/06/19 16:05:06 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "fractol.h"
@@ -20,32 +20,60 @@ static void	mandelbrot_init(t_fractal *f)
 	f->name = "mandelbrot";
 }
 
-static void	julia_init(t_fractal *f)
+static void	julia_init(t_fractal *f, t_input input)
 {
-	printf("Julia_init");
+	f->a = -2.0;
+	f->b = 2.0;
+	f->c = -2.0;
+	f->d = 2.0;
+	f->name = input.name;
+	f->x0 = input.x0;
+	f->y0 = input.y0;
 }
 
-t_fractal	init_fractal(char *name)
+static int	set_boundries(t_fractal *f, t_input input)
 {
-	t_fractal	f;
+	if (!ft_strncmp(input.name, "mandelbrot", 11))
+		mandelbrot_init(f);
+	else if (!ft_strncmp(input.name, "julia", 6))
+		julia_init(f, input);
+	return (0);
+}
 
-	if (!ft_strncmp(name, "mandelbrot", 11))
-	{
-		mandelbrot_init(&f);
-	}	
-	else if (!ft_strncmp(name, "julia", 6))
-	{
-		julia_init(&f);
-	}
-	else
-	{
-		ft_printf("Failed at init!");
-	}
-	f.max_iteration = 60;
-	f.zoom = 1;
-	f.mlx = mlx_init();
-	f.win = mlx_new_window(f.mlx, WIDTH, HEIGHT, f.name);
-	f.img = mlx_new_image(f.mlx, WIDTH, HEIGHT);
-	f.buf = (int *)mlx_get_data_addr(f.img, &f.bpp, &f.size, &f.endian);
-	return (f);
+void	blank_fractal(t_fractal *f)
+{
+	f->name = NULL;
+	f->mlx = NULL;
+	f->win = NULL;
+	f->img = NULL;
+	f->bpp = 0;
+	f->size = 0;
+	f->endian = 0;
+	f->max_iteration = 0;
+	f->palette = 0;
+	f->cx = 0.0;
+	f->cy = 0.0;
+	f->x0 = 0.0;
+	f->y0 = 0.0;
+	f->a = 0.0;
+	f->b = 0.0;
+	f->c = 0.0;
+	f->b = 0.0;
+	f->zoom = 0.0;
+}
+
+int	init_fractal(t_fractal *f, t_input input)
+{
+	if (!f)
+		return (1);
+	blank_fractal(f);
+	set_boundries(f, input);
+	f->max_iteration = 60;
+	f->zoom = 1;
+	f->palette = 1;
+	f->mlx = mlx_init();
+	f->win = mlx_new_window(f->mlx, WIDTH, HEIGHT, f->name);
+	f->img = mlx_new_image(f->mlx, WIDTH, HEIGHT);
+	f->buf = (int *)mlx_get_data_addr(f->img, &f->bpp, &f->size, &f->endian);
+	return (0);
 }
