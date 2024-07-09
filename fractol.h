@@ -6,7 +6,7 @@
 /*   By: pibernar <@student.42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:21:50 by pibernar          #+#    #+#             */
-/*   Updated: 2024/07/09 13:38:25 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/07/09 13:53:09 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ int		mouse_handler(int key, int x, int y, t_fractal *fractal);
 int		fractal_shift(int key, t_fractal *fractal);
 int		fractal_zoom(int key, t_fractal *fractal);
 int		get_pos(int key, int x, int y);
+int		change_julia_set(int key, int x, int y, t_fractal *f);
 int		fractal_iteration(int keycode, t_fractal *fractal);
 int		change_color(int key, t_fractal *f);
 int		close_window(int keycode, t_fractal *f);

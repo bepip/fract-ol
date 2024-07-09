@@ -6,7 +6,7 @@
 /*   By: pibernar <@student.42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 12:55:23 by pibernar          #+#    #+#             */
-/*   Updated: 2024/07/09 13:28:23 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/07/09 14:11:39 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	option_message(void)
 	ft_printf("\t1-9: Change color scheme\n");
 	ft_printf("\t+/-: increase/decrease details\n");
 	ft_printf("\tleft click: show position\n");
+	ft_printf("\tright click: change julia set\n");
 	ft_printf("==========================================\n");
 }
 

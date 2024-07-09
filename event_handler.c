@@ -6,7 +6,7 @@
 /*   By: pibernar <@student.42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 12:47:29 by pibernar          #+#    #+#             */
-/*   Updated: 2024/07/09 13:25:30 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/07/09 13:52:28 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	mouse_handler(int key, int x, int y, t_fractal *f)
 		return (1);
 	fractal_zoom(key, f);
 	get_pos(key, x, y);
+	change_julia_set(key, x, y, f);
 	render(f);
 	return (0);
 }

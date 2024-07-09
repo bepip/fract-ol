@@ -6,7 +6,7 @@
 /*   By: pibernar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 13:03:13 by pibernar          #+#    #+#             */
-/*   Updated: 2024/07/09 13:37:52 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/07/09 14:10:26 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,24 @@ int	get_pos(int key, int x, int y)
 {
 	if (key == 3)
 		ft_printf("mouse position: (x=%d;y=%d)\n", x, y);
+	return (0);
+}
+
+int	change_julia_set(int key, int x, int y, t_fractal *f)
+{
+	double	coord_x;
+	double	coord_y;
+	double	len_x;
+	double	len_y;
+
+	len_x = (f->b - f->a);
+	len_y = (f->c - f->d);
+	coord_x = (len_x) / WIDTH * x + f->a;
+	coord_y = (len_y) / (HEIGHT) * y + f->d;
+	if (key == 1 && !ft_strncmp(f->name, "julia", 6))
+	{
+		f->x0 = coord_x;
+		f->y0 = coord_y;
+	}
 	return (0);
 }
