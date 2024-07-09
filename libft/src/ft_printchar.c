@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_printchar.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibernar <@student.42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/28 13:16:55 by pibernar          #+#    #+#             */
-/*   Updated: 2024/02/28 13:17:41 by pibernar         ###   ########.fr       */
+/*   Created: 2024/02/28 13:24:43 by pibernar          #+#    #+#             */
+/*   Updated: 2024/07/09 09:37:16 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_putstr(char *str)
+int	ft_printchar(char c)
 {
-	while (*str)
-		ft_putchar((int)*str++);
+	ft_putchar(c);
+	return (1);
 }

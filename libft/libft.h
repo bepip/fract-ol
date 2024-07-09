@@ -6,7 +6,7 @@
 /*   By: pibernar <@student.42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 12:03:05 by pibernar          #+#    #+#             */
-/*   Updated: 2024/02/26 11:47:44 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/07/09 10:49:37 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # define INTMIN		-2147483648
 # define UINTMAX	4294967295
 
+# include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <stddef.h>
@@ -61,15 +62,19 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
-/*
-t_list	*ft_lstnew(void *content);
-void	ft_lstadd_front(t_list **lst, t_list *new);
-int	ft_lstsize(t_list *lst);
-t_list	*ft_lstlast(t_list *lst);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lstdelone(t_list *lst, void (*del)(void *));
-void	ft_lstclear(t_list **lst, void (*del)(void *));
-void	ft_lstiter(t_list *lst, void (*f)(void *));
-t_list *ft_lstmap(t_list*lst, void *(*f)(void *), void (*del)(void *));
-*/
+int		ft_abs(int a);
+//ft_printf
+void	ft_putchar(int c);
+void	ft_putstr(char *s);
+void	ft_putnbr(int n);
+void	ft_putuint(unsigned int n);
+
+int		ft_printdecimal(int n);
+int		ft_printchar(char c);
+int		ft_printstr(char *s);
+int		ft_printptr(long unsigned int p);
+int		ft_printunint(unsigned int n);
+int		ft_printhexa(unsigned int n, char c);
+int		ft_printpercent(void);
+int		ft_printf(const char *str, ...);
 #endif

@@ -1,4 +1,4 @@
-NAME	=	libfts.a
+NAME	=	libft.a
 CC	=	gcc
 CFLAGS	=	-Wall -Wextra -Werror
 CFILES	=	ft_tolower.c \
@@ -34,39 +34,41 @@ CFILES	=	ft_tolower.c \
 		ft_toupper.c \
 		ft_itoa.c \
 		ft_putstr_fd.c \
-		ft_memcpy.c  
+		ft_memcpy.c \
+		ft_abs.c \
+		ft_printdecimal.c \
+		ft_printf.c \
+		ft_printhexa.c \
+		ft_printchar.c \
+		ft_printpercent.c \
+		ft_printptr.c \
+		ft_printstr.c \
+		ft_printunint.c \
+		ft_putchar.c \
+		ft_putnbr.c \
+		ft_putstr.c \
+		ft_putuint.c
 
-#BCFILES	=	ft_lstnew.c \
-			ft_lstadd_front.c \
-			ft_lstsize.c \
-			ft_lstadd_back.c \
-			ft_lstdelone.c \
-			ft_lstclear.c \
-			ft_lstlast.c \
-			ft_lstmap.c \
-			ft_lstiter.c \
-
-OBJECTS	=	$(CFILES:.c=.o)
-
-#BOBJECTS =	$(BCFILES:.c=.o)
-
+SRC_PATH = src/
+OBJ_PATH = obj/
+OBJ	=	$(CFILES:.c=.o)
+OBJS = $(addprefix $(OBJ_PATH), $(OBJ))
 AR	=	ar rcs
 
 all:	$(NAME)
 
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c
+	@mkdir -p $(OBJ_PATH)
+	$(CC) $(CFLAGS) -c $< -o $@ -I ./
 
-$(NAME): $(OBJECTS)
-	$(AR) $(NAME) $(OBJECTS)
-
-#bonus: $(OBJECTS) $(BOBJECTS)
-	#$(AR) $(NAME) $(BOBJECTS)
+$(NAME): $(OBJS)
+	$(AR) $(NAME) $(OBJS)
 
 %.o:%.c
 	$(CC) $(CFLAGS)  -c $?
 
 clean:
-	rm -f $(OBJECTS)
-	#rm -f $(BOBJECTS)
+	rm -rf $(OBJ_PATH)
 
 fclean:	clean
 	rm -f $(NAME)

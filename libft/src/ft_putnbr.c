@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibernar <@student.42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/22 16:21:00 by pibernar          #+#    #+#             */
-/*   Updated: 2024/06/19 16:47:55 by pibernar         ###   ########.fr       */
+/*   Created: 2024/02/28 13:14:28 by pibernar          #+#    #+#             */
+/*   Updated: 2024/07/09 09:38:44 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "libft.h"
 
-int	main(int ac, char *av[])
+void	ft_putnbr(int n)
 {
-	t_fractal	f;
-	t_input		input;
+	int	sign;
 
-	if (!input_check(ac, av))
+	sign = 1;
+	if (n < 0)
 	{
-		input_message();
-		return (0);
+		sign *= -1;
+		ft_putchar('-');
 	}
-	option_message();
-	input = set_input(ac, av);
-	init_fractal(&f, input);
-	render(&f);
-	mlx_hook(f.win, 17, 0, free_fractal, &f);
-	mlx_key_hook(f.win, key_handler, &f);
-	mlx_mouse_hook(f.win, mouse_handler, &f);
-	mlx_loop(f.mlx);
-	return (0);
+	if (n / 10)
+		ft_putnbr(n / 10 * sign);
+	ft_putchar('0' + n % 10 * sign);
 }

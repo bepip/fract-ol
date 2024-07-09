@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printunint.c                                    :+:      :+:    :+:   */
+/*   ft_printstr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibernar <@student.42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 11:02:41 by pibernar          #+#    #+#             */
-/*   Updated: 2024/03/05 13:31:02 by pibernar         ###   ########.fr       */
+/*   Created: 2024/02/28 13:31:04 by pibernar          #+#    #+#             */
+/*   Updated: 2024/07/09 09:37:58 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-static int	ft_size_num(unsigned int n)
+int	ft_printstr(char *str)
 {
-	int	size;
+	int		str_len;
 
-	size = 1;
-	while (n / 10)
+	if (!str)
 	{
-		size++;
-		n /= 10;
+		ft_putstr("(null)");
+		return (6);
 	}
-	return (size);
-}
-
-int	ft_printunint(unsigned int n)
-{
-	ft_putuint(n);
-	return (ft_size_num(n));
+	str_len = (int)ft_strlen(str);
+	ft_putstr(str);
+	return (str_len);
 }

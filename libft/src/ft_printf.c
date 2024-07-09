@@ -6,11 +6,11 @@
 /*   By: pibernar <@student.42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 13:12:11 by pibernar          #+#    #+#             */
-/*   Updated: 2024/04/09 12:19:50 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/07/09 13:32:13 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int	ft_format(char c, va_list args)
 {

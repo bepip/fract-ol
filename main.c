@@ -1,19 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printpercent.c                                  :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibernar <@student.42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/28 13:33:06 by pibernar          #+#    #+#             */
-/*   Updated: 2024/02/28 14:36:55 by pibernar         ###   ########.fr       */
+/*   Created: 2024/05/22 16:21:00 by pibernar          #+#    #+#             */
+/*   Updated: 2024/07/09 12:43:23 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "fractol.h"
 
-int	ft_printpercent(void)
+int	main(int ac, char *av[])
 {
-	ft_putchar('%');
-	return (1);
+	t_fractal	f;
+	t_input		input;
+
+	if (!input_check(ac, av))
+	{
+		input_message();
+		return (0);
+	}
+	option_message();
+	input = set_input(ac, av);
+	init_fractal(&f, input);
+	render(&f);
+	mlx_hook(f.win, 17, 0, free_fractal, &f);
+	mlx_key_hook(f.win, key_handler, &f);
+	mlx_mouse_hook(f.win, mouse_handler, &f);
+	mlx_loop(f.mlx);
+	return (0);
 }

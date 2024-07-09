@@ -6,7 +6,7 @@
 /*   By: pibernar <@student.42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 17:07:46 by pibernar          #+#    #+#             */
-/*   Updated: 2024/06/19 16:47:16 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/07/09 13:35:49 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int	mandelbrot(t_fractal *f, int px, int py)
 {
-	double	x;
-	double	y;
-	double	x2;
-	double	y2;
-	int		iteration;
+	unsigned int	iteration;
+	double			x;
+	double			y;
+	double			x2;
+	double			y2;
 
 	x = 0;
 	y = 0;
@@ -40,11 +40,11 @@ int	mandelbrot(t_fractal *f, int px, int py)
 
 int	julia(t_fractal *f, int px, int py)
 {
-	double	x;
-	double	y;
-	double	x2;
-	double	y2;
-	int		iteration;
+	unsigned int	iteration;
+	double			x;
+	double			y;
+	double			x2;
+	double			y2;
 
 	iteration = 0;
 	x = (((f->b - f->a) / WIDTH) * px + f->a);

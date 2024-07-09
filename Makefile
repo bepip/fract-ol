@@ -2,7 +2,7 @@ NAME	=	fractol
 
 
 CC	=	gcc
-CFLAGS	=	#-Wall -Wextra -Werror
+CFLAGS	=	-Wall -Wextra -Werror
 MLX_FLAGS=	-Lminilibx -lmlx_Linux -lX11 -lXext
 CFILES	=	fractal.c \
 		main.c	\
@@ -17,27 +17,22 @@ CFILES	=	fractal.c \
 		utils.c	
 
 
-SRC_PATH = src/
+OBJS	=	$(CFILES:.c=.o)
 
-OBJ_PATH=	objects/
-OBJ	=	$(CFILES:.c=.o)
-OBJS	=	$(addprefix $(OBJ_PATH),$(OBJ))
-
-LIB_PATH	=	./lib
+LIB_PATH	=	./libft
 LIB		=	$(LIB_PATH)/libft.a \
 
 MLX_PATH	=	./minilibx
 MLX		=	$(MLX_PATH)/libmlx.a
 
-INCLUDE		=	-I ./include/ \
+INCLUDE		=	-I ./ \
 			-I ./minilibx/ \
-			-I ./lib \
+			-I ./libft \
 
 
 all: $(MLX) $(LIB) $(NAME)
 
-$(OBJ_PATH)%.o: $(SRC_PATH)%.c
-	@mkdir -p $(OBJ_PATH)
+%.o:%.c
 	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 $(MLX):
@@ -55,7 +50,7 @@ $(NAME): $(OBJS)
 
 clean:
 	@echo "Removing object files..."
-	@rm -rf $(OBJ_PATH) 
+	@rm -rf $(OBJS) 
 	@make clean -sC $(LIB_PATH)
 	@make clean -sC $(MLX_PATH)
 

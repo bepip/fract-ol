@@ -6,7 +6,7 @@
 /*   By: pibernar <@student.42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 12:17:06 by pibernar          #+#    #+#             */
-/*   Updated: 2024/06/19 16:05:06 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/06/19 17:06:29 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "fractol.h"
@@ -29,6 +29,7 @@ static void	julia_init(t_fractal *f, t_input input)
 	f->name = input.name;
 	f->x0 = input.x0;
 	f->y0 = input.y0;
+	f->palette = 9;
 }
 
 static int	set_boundries(t_fractal *f, t_input input)
@@ -67,10 +68,10 @@ int	init_fractal(t_fractal *f, t_input input)
 	if (!f)
 		return (1);
 	blank_fractal(f);
-	set_boundries(f, input);
 	f->max_iteration = 60;
 	f->zoom = 1;
 	f->palette = 1;
+	set_boundries(f, input);
 	f->mlx = mlx_init();
 	f->win = mlx_new_window(f->mlx, WIDTH, HEIGHT, f->name);
 	f->img = mlx_new_image(f->mlx, WIDTH, HEIGHT);

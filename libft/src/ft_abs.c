@@ -1,34 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   event_handler.c                                    :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibernar <@student.42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/04 12:47:29 by pibernar          #+#    #+#             */
-/*   Updated: 2024/06/19 13:27:55 by pibernar         ###   ########.fr       */
+/*   Created: 2024/07/09 10:48:10 by pibernar          #+#    #+#             */
+/*   Updated: 2024/07/09 10:53:05 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "libft.h"
 
-int	key_handler(int key, t_fractal *f)
+int	ft_abs(int a)
 {
-	if (!f)
-		return (1);
-	fractal_shift(key, f);
-	fractal_iteration(key, f);
-	change_color(key, f);
-	close_window(key, f);
-	render(f);
-	return (0);
-}
-
-int	mouse_handler(int key, int x, int y, t_fractal *f)
-{
-	if (!f)
-		return (1);
-	fractal_zoom(key, f);
-	render(f);
-	return (0);
+	if (a < 0)
+		return (-a);
+	return (a);
 }

@@ -1,40 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printdecimal.c                                  :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibernar <@student.42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/28 12:42:24 by pibernar          #+#    #+#             */
-/*   Updated: 2024/03/05 14:48:04 by pibernar         ###   ########.fr       */
+/*   Created: 2024/02/28 13:16:55 by pibernar          #+#    #+#             */
+/*   Updated: 2024/07/09 09:38:58 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-static int	ft_size_num(int n)
+void	ft_putstr(char *str)
 {
-	int		size;
-	long	num;
-
-	size = 0;
-	num = (long)n;
-	if (num < 0)
-	{
-		num *= -1;
-		size++;
-	}
-	while (num / 10)
-	{
-		size++;
-		num /= 10;
-	}
-	size++;
-	return (size);
-}
-
-int	ft_printdecimal(int n)
-{
-	ft_putnbr(n);
-	return (ft_size_num(n));
+	while (*str)
+		ft_putchar((int)*str++);
 }

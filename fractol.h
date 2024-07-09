@@ -6,7 +6,7 @@
 /*   By: pibernar <@student.42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:21:50 by pibernar          #+#    #+#             */
-/*   Updated: 2024/06/19 17:00:22 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/07/09 13:38:25 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "mlx.h"
 # include "mlx_int.h"
-# include "ft_printf.h"
+# include "libft.h"
 # include <stdlib.h>
 # include <math.h>
 
@@ -71,7 +71,7 @@ int		init_fractal(t_fractal *f, t_input input);
 
 int		mandelbrot(t_fractal *f, int px, int py);
 int		julia(t_fractal *f, int px, int py);
-int		ft_color(t_fractal *f, int iter);
+int		ft_color(t_fractal *f, unsigned int iter);
 // render
 
 int		render(t_fractal *f);
@@ -82,6 +82,7 @@ int		key_handler(int key, t_fractal *fractal);
 int		mouse_handler(int key, int x, int y, t_fractal *fractal);
 int		fractal_shift(int key, t_fractal *fractal);
 int		fractal_zoom(int key, t_fractal *fractal);
+int		get_pos(int key, int x, int y);
 int		fractal_iteration(int keycode, t_fractal *fractal);
 int		change_color(int key, t_fractal *f);
 int		close_window(int keycode, t_fractal *f);

@@ -6,7 +6,7 @@
 /*   By: pibernar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 13:03:13 by pibernar          #+#    #+#             */
-/*   Updated: 2024/06/19 16:50:55 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/07/09 13:37:52 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,12 @@ int	fractal_zoom(int key, t_fractal *f)
 		zoom(f, 1.1);
 		f->zoom *= 1.1;
 	}
+	return (0);
+}
+
+int	get_pos(int key, int x, int y)
+{
+	if (key == 3)
+		ft_printf("mouse position: (x=%d;y=%d)\n", x, y);
 	return (0);
 }
