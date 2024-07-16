@@ -6,21 +6,22 @@
 /*   By: pibernar <@student.42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 12:17:06 by pibernar          #+#    #+#             */
-/*   Updated: 2024/06/19 17:06:29 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/07/11 14:21:56 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "fractol.h"
 
-static void	mandelbrot_init(t_fractal *f)
+void	mandelbrot_init(t_fractal *f)
 {
 	f->a = -2.0;
 	f->b = 0.47;
 	f->c = -1.12;
 	f->d = 1.12;
 	f->name = "mandelbrot";
+	f->palette = 1;
 }
 
-static void	julia_init(t_fractal *f, t_input input)
+void	julia_init(t_fractal *f, t_input input)
 {
 	f->a = -2.0;
 	f->b = 2.0;

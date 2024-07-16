@@ -14,7 +14,8 @@ CFILES	=	fractal.c \
 		render.c \
 		input_check.c \
 		free_fractal.c \
-		utils.c	
+		utils.c	\
+		change_set.c
 
 
 OBJS	=	$(CFILES:.c=.o)

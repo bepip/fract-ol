@@ -6,16 +6,16 @@
 /*   By: pibernar <@student.42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:21:50 by pibernar          #+#    #+#             */
-/*   Updated: 2024/07/09 13:53:09 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/07/11 14:22:25 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include "mlx.h"
-# include "mlx_int.h"
-# include "libft.h"
+# include "minilibx/mlx.h"
+# include "minilibx/mlx_int.h"
+# include "libft/libft.h"
 # include <stdlib.h>
 # include <math.h>
 
@@ -69,6 +69,8 @@ int		init_fractal(t_fractal *f, t_input input);
 
 // fractal
 
+void	mandelbrot_init(t_fractal *f);
+void	julia_init(t_fractal *f, t_input input);
 int		mandelbrot(t_fractal *f, int px, int py);
 int		julia(t_fractal *f, int px, int py);
 int		ft_color(t_fractal *f, unsigned int iter);
@@ -83,6 +85,8 @@ int		mouse_handler(int key, int x, int y, t_fractal *fractal);
 int		fractal_shift(int key, t_fractal *fractal);
 int		fractal_zoom(int key, t_fractal *fractal);
 int		get_pos(int key, int x, int y);
+int		print_options(int key);
+int		change_set(int key, t_fractal *fractal);
 int		change_julia_set(int key, int x, int y, t_fractal *f);
 int		fractal_iteration(int keycode, t_fractal *fractal);
 int		change_color(int key, t_fractal *f);

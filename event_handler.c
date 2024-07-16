@@ -6,7 +6,7 @@
 /*   By: pibernar <@student.42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 12:47:29 by pibernar          #+#    #+#             */
-/*   Updated: 2024/07/09 13:52:28 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/07/11 14:27:50 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	key_handler(int key, t_fractal *f)
 	fractal_iteration(key, f);
 	change_color(key, f);
 	close_window(key, f);
+	print_options(key);
+	change_set(key, f);
 	render(f);
 	return (0);
 }

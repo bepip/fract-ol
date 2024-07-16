@@ -6,7 +6,7 @@
 /*   By: pibernar <@student.42luxembourg.lu>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 12:55:23 by pibernar          #+#    #+#             */
-/*   Updated: 2024/07/09 14:11:39 by pibernar         ###   ########.fr       */
+/*   Updated: 2024/07/11 14:30:36 by pibernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,11 @@ void	option_message(void)
 	ft_printf("\tW,A,S,D / arrows: Move around.\n");
 	ft_printf("\tMouse Wheel: Zoom in or out.\n");
 	ft_printf("\t1-9: Change color scheme\n");
+	ft_printf("\tc: change fractal type\n");
+	ft_printf("\to: show options\n");
 	ft_printf("\t+/-: increase/decrease details\n");
-	ft_printf("\tleft click: show position\n");
-	ft_printf("\tright click: change julia set\n");
+	ft_printf("\tright click: show position\n");
+	ft_printf("\tleft click: change julia set\n");
 	ft_printf("==========================================\n");
 }
 

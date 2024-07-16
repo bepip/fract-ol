@@ -77,3 +77,10 @@ int	change_color(int key, t_fractal *f)
 		f->palette = 9;
 	return (0);
 }
+
+int	print_options(int key)
+{
+	if (key == 111)
+		option_message();
+	return (0);
+}
